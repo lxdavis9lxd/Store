@@ -1,0 +1,10 @@
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.864 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m3.848 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.454 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.721 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.119 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.394 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.704 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.077 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.429 ms - 12[0m
+[0mGET /api/v1/customers/?pageNo=1&pageSize=100 [33m403 [0m1.517 ms - 12[0m

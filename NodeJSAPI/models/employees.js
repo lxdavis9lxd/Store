@@ -2,12 +2,12 @@ const {getRows, insertRow, updateRow, deleteRow} = require('../database/query');
 var SqlString = require('sqlstring');
 
 exports.find = async (offset, pageSize) => {
-    const query = `SELECT  of.city as officeCode_Value, em.lastName as employeeNumber_Value, t.* FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  LIMIT ?, ?`;
+    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber `;
     return getRows(query,[offset,pageSize]);
 }
 
 exports.findOne = async (employeeNumber) => {
-    const query = `SELECT  of.city as officeCode_Value, em.lastName as employeeNumber_Value, t.* FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE t.employeeNumber=? LIMIT 0,1`;
+    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.employeeNumber=? `;
     return getRows(query,[employeeNumber]);
 }
 
@@ -43,7 +43,7 @@ exports.remove = async (employeeNumber) => {
 }
 
 exports.count = async () => {
-    const query = `SELECT count(*) TotalCount FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  `;
+    const query = `SELECT count(*) TotalCount FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  `;
     const result = await getRows(query);
     if (result && result[0] && result[0].TotalCount && result[0].TotalCount > 0) {
         return result[0].TotalCount;
@@ -53,12 +53,12 @@ exports.count = async () => {
 }
 
 exports.search = async (offset, pageSize, key) => {
-    const query = `SELECT  of.city as officeCode_Value, em.lastName as employeeNumber_Value, t.* FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE  LOWER(t.employeeNumber) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.lastName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.firstName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.extension) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.email) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.officeCode) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.reportsTo) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.jobTitle) LIKE `+SqlString.escape('%'+key+'%')+` LIMIT ?, ?`;
+    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE  LOWER(t.employeeNumber) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.lastName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.firstName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.extension) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.email) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.officeCode) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.reportsTo) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.jobTitle) LIKE `+SqlString.escape('%'+key+'%')+` `;
     return getRows(query,[offset, pageSize]);
 }
 
 exports.searchCount = async (key) => {
-    const query = `SELECT count(*) TotalCount FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE  LOWER(t.employeeNumber) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.lastName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.firstName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.extension) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.email) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.officeCode) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.reportsTo) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.jobTitle) LIKE `+SqlString.escape('%'+key+'%')+` `;
+    const query = `SELECT count(*) TotalCount FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE  LOWER(t.employeeNumber) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.lastName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.firstName) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.extension) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.email) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.officeCode) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.reportsTo) LIKE `+SqlString.escape('%'+key+'%')+` OR LOWER(t.jobTitle) LIKE `+SqlString.escape('%'+key+'%')+` `;
     const result = await getRows(query);
     if (result && result[0] && result[0].TotalCount && result[0].TotalCount > 0) {
         return result[0].TotalCount;
@@ -69,12 +69,12 @@ exports.searchCount = async (key) => {
 
 
 exports.getByOfficecode = async (offset, pageSize, officeCode) => {
-    const query = `SELECT  of.city as officeCode_Value, em.lastName as employeeNumber_Value, t.* FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE t.officeCode= ? LIMIT ?, ?`;
+    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.officeCode= ?`;
     return getRows(query,[officeCode,offset,pageSize]);
 }
 
 exports.getByOfficecodeCount = async (officeCode) => {
-    const query = `SELECT count(*) TotalCount FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE t.officeCode= ?`;
+    const query = `SELECT count(*) TotalCount FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.officeCode= ?`;
     const result = await getRows(query,[officeCode]);
     if (result && result[0] && result[0].TotalCount && result[0].TotalCount > 0) {
         return result[0].TotalCount;
@@ -83,12 +83,12 @@ exports.getByOfficecodeCount = async (officeCode) => {
     }
 }
 exports.getByReportsto = async (offset, pageSize, reportsTo) => {
-    const query = `SELECT  of.city as officeCode_Value, em.lastName as employeeNumber_Value, t.* FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE t.reportsTo= ? LIMIT ?, ?`;
+    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.reportsTo= ? `;
     return getRows(query,[reportsTo,offset,pageSize]);
 }
 
 exports.getByReportstoCount = async (reportsTo) => {
-    const query = `SELECT count(*) TotalCount FROM employees t  join offices of on t.officeCode = of.officeCode  left join employees em on t.reportsTo = em.employeeNumber  WHERE t.reportsTo= ?`;
+    const query = `SELECT count(*) TotalCount FROM employees t  join offices of o t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.reportsTo= ?`;
     const result = await getRows(query,[reportsTo]);
     if (result && result[0] && result[0].TotalCount && result[0].TotalCount > 0) {
         return result[0].TotalCount;

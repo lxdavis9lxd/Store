@@ -2,12 +2,12 @@ const {getRows, insertRow, updateRow, deleteRow} = require('../database/query');
 var SqlString = require('sqlstring');
 
 exports.find = async (offset, pageSize) => {
-    const query = `SELECT  ep.lastName as employeeNumber_Value, t.* FROM customers t  left join employees ep on t.salesRepEmployeeNumber = ep.employeeNumber  LIMIT ?, ?`;
+    const query = `SELECT  ep.lastName as employeeNumber_Value, t.* FROM customers t  left join employees ep on t.salesRepEmployeeNumber = ep.employeeNumber  `;
     return getRows(query,[offset,pageSize]);
 }
 
 exports.findOne = async (customerNumber) => {
-    const query = `SELECT  ep.lastName as employeeNumber_Value, t.* FROM customers t  left join employees ep on t.salesRepEmployeeNumber = ep.employeeNumber  WHERE t.customerNumber=? LIMIT 0,1`;
+    const query = `SELECT  ep.lastName as employeeNumber_Value, t.* FROM customers t  left join employees ep on t.salesRepEmployeeNumber = ep.employeeNumber  WHERE t.customerNumber=? `;
     return getRows(query,[customerNumber]);
 }
 
