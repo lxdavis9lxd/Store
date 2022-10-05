@@ -1,0 +1,2921 @@
+{
+	"info": {
+		"_postman_id": "ef246093-7e68-49de-ba7c-527bc93c967f",
+		"name": "BDPAMKE Test Rest APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21879505"
+	},
+	"item": [
+		{
+			"name": "TokenGenerator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var token = jsonData.access_token;\r",
+							"postman.setEnvironmentVariable(\"token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\":\"admin\",\n\"password\":\"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/token",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FileUpload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var token = jsonData.accessToken;\r",
+							"postman.setEnvironmentVariable(\"token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/upload",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productCode\":\"\",\"productName\":\"\",\"productLine\":\"\",\"productScale\":\"\",\"productVendor\":\"\",\"productDescription\":\"\",\"quantityInStock\":\"\",\"buyPrice\":\"\",\"MSRP\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/products",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productCode\":\"\",\"productName\":\"\",\"productLine\":\"\",\"productScale\":\"\",\"productVendor\":\"\",\"productDescription\":\"\",\"quantityInStock\":\"\",\"buyPrice\":\"\",\"MSRP\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/products/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productCode\":\"\",\"productName\":\"\",\"productLine\":\"\",\"productScale\":\"\",\"productVendor\":\"\",\"productDescription\":\"\",\"quantityInStock\":\"\",\"buyPrice\":\"\",\"MSRP\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/products/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/products/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/products/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - GetByFK_productLine",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/products/getby/productLine/${productLine}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						"getby",
+						"productLine",
+						"${productLine}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/products/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productCode\":\"\",\"productName\":\"\",\"productLine\":\"\",\"productScale\":\"\",\"productVendor\":\"\",\"productDescription\":\"\",\"quantityInStock\":\"\",\"buyPrice\":\"\",\"MSRP\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/products/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"products",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productLine\":\"\",\"textDescription\":\"\",\"htmlDescription\":\"\",\"image\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productLine\":\"\",\"textDescription\":\"\",\"htmlDescription\":\"\",\"image\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines/${productLine}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines",
+						"${productLine}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productLine\":\"\",\"textDescription\":\"\",\"htmlDescription\":\"\",\"image\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines/${productLine}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines",
+						"${productLine}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines/${productLine}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines",
+						"${productLine}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productlines - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"productLine\":\"\",\"textDescription\":\"\",\"htmlDescription\":\"\",\"image\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/productlines/${productLine}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"productlines",
+						"${productLine}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"checkNumber\":\"\",\"paymentDate\":\"\",\"amount\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/payments",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"checkNumber\":\"\",\"paymentDate\":\"\",\"amount\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/${customerNumber}/${checkNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						"${customerNumber}",
+						"${checkNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"checkNumber\":\"\",\"paymentDate\":\"\",\"amount\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/${customerNumber}/${checkNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						"${customerNumber}",
+						"${checkNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/${customerNumber}/${checkNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						"${customerNumber}",
+						"${checkNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - GetByFK_customerNumber",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/getby/customerNumber/${customerNumber}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						"getby",
+						"customerNumber",
+						"${customerNumber}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payments - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"checkNumber\":\"\",\"paymentDate\":\"\",\"amount\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/payments/${customerNumber}/${checkNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"payments",
+						"${customerNumber}",
+						"${checkNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"orderDate\":\"\",\"requiredDate\":\"\",\"shippedDate\":\"\",\"status\":\"\",\"comments\":\"\",\"customerNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orders",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"orderDate\":\"\",\"requiredDate\":\"\",\"shippedDate\":\"\",\"status\":\"\",\"comments\":\"\",\"customerNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/${orderNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						"${orderNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"orderDate\":\"\",\"requiredDate\":\"\",\"shippedDate\":\"\",\"status\":\"\",\"comments\":\"\",\"customerNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/${orderNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						"${orderNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/${orderNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						"${orderNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - GetByFK_customerNumber",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/getby/customerNumber/${customerNumber}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						"getby",
+						"customerNumber",
+						"${customerNumber}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"orderDate\":\"\",\"requiredDate\":\"\",\"shippedDate\":\"\",\"status\":\"\",\"comments\":\"\",\"customerNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orders/${orderNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orders",
+						"${orderNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"productCode\":\"\",\"quantityOrdered\":\"\",\"priceEach\":\"\",\"orderLineNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"productCode\":\"\",\"quantityOrdered\":\"\",\"priceEach\":\"\",\"orderLineNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/${orderNumber}/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"${orderNumber}",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"productCode\":\"\",\"quantityOrdered\":\"\",\"priceEach\":\"\",\"orderLineNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/${orderNumber}/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"${orderNumber}",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/${orderNumber}/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"${orderNumber}",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - GetByFK_orderNumber",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/getby/orderNumber/${orderNumber}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"getby",
+						"orderNumber",
+						"${orderNumber}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - GetByFK_productCode",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/getby/productCode/${productCode}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"getby",
+						"productCode",
+						"${productCode}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orderdetails - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderNumber\":\"\",\"productCode\":\"\",\"quantityOrdered\":\"\",\"priceEach\":\"\",\"orderLineNumber\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/orderdetails/${orderNumber}/${productCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"orderdetails",
+						"${orderNumber}",
+						"${productCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"officeCode\":\"\",\"city\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"state\":\"\",\"country\":\"\",\"postalCode\":\"\",\"territory\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/offices",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"officeCode\":\"\",\"city\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"state\":\"\",\"country\":\"\",\"postalCode\":\"\",\"territory\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/offices/${officeCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices",
+						"${officeCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"officeCode\":\"\",\"city\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"state\":\"\",\"country\":\"\",\"postalCode\":\"\",\"territory\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/offices/${officeCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices",
+						"${officeCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/offices/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/offices/${officeCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices",
+						"${officeCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/offices/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offices - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"officeCode\":\"\",\"city\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"state\":\"\",\"country\":\"\",\"postalCode\":\"\",\"territory\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/offices/${officeCode}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"offices",
+						"${officeCode}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employeeNumber\":\"\",\"lastName\":\"\",\"firstName\":\"\",\"extension\":\"\",\"email\":\"\",\"officeCode\":\"\",\"reportsTo\":\"\",\"jobTitle\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/employees",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employeeNumber\":\"\",\"lastName\":\"\",\"firstName\":\"\",\"extension\":\"\",\"email\":\"\",\"officeCode\":\"\",\"reportsTo\":\"\",\"jobTitle\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/${employeeNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"${employeeNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employeeNumber\":\"\",\"lastName\":\"\",\"firstName\":\"\",\"extension\":\"\",\"email\":\"\",\"officeCode\":\"\",\"reportsTo\":\"\",\"jobTitle\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/${employeeNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"${employeeNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/${employeeNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"${employeeNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - GetByFK_officeCode",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/getby/officeCode/${officeCode}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"getby",
+						"officeCode",
+						"${officeCode}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - GetByFK_reportsTo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/getby/reportsTo/${reportsTo}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"getby",
+						"reportsTo",
+						"${reportsTo}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"employeeNumber\":\"\",\"lastName\":\"\",\"firstName\":\"\",\"extension\":\"\",\"email\":\"\",\"officeCode\":\"\",\"reportsTo\":\"\",\"jobTitle\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/employees/${employeeNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"employees",
+						"${employeeNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"customerName\":\"\",\"contactLastName\":\"\",\"contactFirstName\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"city\":\"\",\"state\":\"\",\"postalCode\":\"\",\"country\":\"\",\"salesRepEmployeeNumber\":\"\",\"creditLimit\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/customers",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - Update Only Passed Columns",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"customerName\":\"\",\"contactLastName\":\"\",\"contactFirstName\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"city\":\"\",\"state\":\"\",\"postalCode\":\"\",\"country\":\"\",\"salesRepEmployeeNumber\":\"\",\"creditLimit\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/${customerNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						"${customerNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"customerName\":\"\",\"contactLastName\":\"\",\"contactFirstName\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"city\":\"\",\"state\":\"\",\"postalCode\":\"\",\"country\":\"\",\"salesRepEmployeeNumber\":\"\",\"creditLimit\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/${customerNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						"${customerNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/?pageNo=1&pageSize=100",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/${customerNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						"${customerNumber}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - GetByFK_salesRepEmployeeNumber",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/getby/salesRepEmployeeNumber/${salesRepEmployeeNumber}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						"getby",
+						"salesRepEmployeeNumber",
+						"${salesRepEmployeeNumber}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/search/${searchKey}/?pageNo=1&pageSize=30",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						"search",
+						"${searchKey}",
+						""
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customers - Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerNumber\":\"\",\"customerName\":\"\",\"contactLastName\":\"\",\"contactFirstName\":\"\",\"phone\":\"\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"city\":\"\",\"state\":\"\",\"postalCode\":\"\",\"country\":\"\",\"salesRepEmployeeNumber\":\"\",\"creditLimit\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEVServerURL}}/customers/${customerNumber}",
+					"host": [
+						"{{DEVServerURL}}"
+					],
+					"path": [
+						"customers",
+						"${customerNumber}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

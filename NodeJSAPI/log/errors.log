@@ -1,0 +1,13 @@
+[0mGET /api/v1/products/$%7BproductCode%7D [33m404 [0m3.271 ms - 29[0m
+[0mPOST /api/v1/products [33m400 [0m14.220 ms - 64[0m
+[0mPATCH /api/v1/products/$%7BproductCode%7D [33m400 [0m2.895 ms - 26[0m
+[0mGET /api/v1/products/getby/productLine/$%7BproductLine%7D/?pageNo=1&pageSize=30 [33m404 [0m2.851 ms - 24[0m
+[0mGET /api/v1/products/?pageNo=1&pageSize=100 [33m401 [0m0.242 ms - 12[0m
+[0mGET /api/v1 [33m404 [0m2.163 ms - 1449[0m
+[0mGET /api/v1/offices/$%7BofficeCode%7D [33m404 [0m3.681 ms - 29[0m
+[0mPOST /api/v1/token [33m404 [0m15.729 ms - 24[0m
+[0mPOST /api/v1/token [33m404 [0m1.010 ms - 24[0m
+[0mGET /api/v1/products/?pageNo=1&pageSize=100 [33m403 [0m6.845 ms - 12[0m
+[0mGET /api/v1/products/?pageNo=1&pageSize=100 [33m403 [0m5.071 ms - 12[0m
+[0mGET /api/v1/products/?pageNo=1&pageSize=100 [33m403 [0m3.696 ms - 12[0m
+[0mGET /api/v1/products/?pageNo=1&pageSize=100 [33m403 [0m3.572 ms - 12[0m
