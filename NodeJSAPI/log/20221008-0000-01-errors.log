@@ -1,0 +1,7 @@
+[0mGET /api/v1/employees/ [33m403 [0m6.780 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m2.763 ms - 12[0m
+[0mGET /api/v1/employees/search/san [33m404 [0m2.613 ms - 29[0m
+[0mGET /api/v1employees/1584 [33m404 [0m1.442 ms - 1466[0m
+[0mDELETE /api/v1employees/1574 [33m404 [0m0.643 ms - 1466[0m
+[0mDELETE /api/v1employees/1584 [33m404 [0m0.613 ms - 1466[0m
+[0mPOST /api/v1/employees [31m500 [0m10.913 ms - 1344[0m

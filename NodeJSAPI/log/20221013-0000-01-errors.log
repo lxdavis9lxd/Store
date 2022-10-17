@@ -1,0 +1,13 @@
+[0mGET /api/v1/employees/search/ [33m404 [0m1.516 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.316 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.214 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.451 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m2.055 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.770 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m2.417 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.164 ms - 29[0m
+[0mGET /api/v1/employees/search/asdg [33m404 [0m2.524 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.733 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.444 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.686 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m0.887 ms - 29[0m

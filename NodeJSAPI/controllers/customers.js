@@ -30,8 +30,7 @@ exports.getAll = async (req, res, next) => {
 exports.getOne = async (req, res, next) => {
 	try {
 		const customerNumber = req.params.customerNumber;
-
-		const data = await model.findOne(customerNumber);
+        const data = await model.findOne(customerNumber);
 		if (!_.isEmpty(data)) {
 			res.status(StatusCodes.OK).send(data[0]);
 		} else {

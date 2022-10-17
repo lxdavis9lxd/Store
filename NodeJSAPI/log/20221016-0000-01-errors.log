@@ -1,0 +1,14 @@
+[0mPATCH /api/v1/employees/6081 [33m400 [0m0.549 ms - 11[0m
+[0mPATCH /api/v1/employees/6081 [33m400 [0m0.374 ms - 11[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.678 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.149 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.255 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.489 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.617 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.404 ms - 29[0m
+[0mGET /api/v1/employees/search/ [33m404 [0m1.324 ms - 29[0m
+[0mPATCH /api/v1/employees/6081 [33m400 [0m0.754 ms - 11[0m
+[0mGET /api/v1/employees/search/undefined [33m404 [0m3.293 ms - 29[0m
+[0mPOST /api/v1/employees/6082 [33m404 [0m1.449 ms - 1431[0m
+[0mPOST /api/v1/employees/6002 [33m404 [0m0.897 ms - 1431[0m
+[0mPOST /api/v1/employees/6103 [33m404 [0m0.697 ms - 1431[0m

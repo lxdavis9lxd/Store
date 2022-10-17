@@ -7,7 +7,7 @@ exports.find = async (offset, pageSize) => {
 }
 
 exports.findOne = async (employeeNumber) => {
-    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.employeeNumber=? `;
+    const query = `SELECT  o.city as officeCode_Value, e.lastName as employeeNumber_Value, t.* FROM employees t  join offices o on t.officeCode = o.officeCode  left join employees e on t.reportsTo = e.employeeNumber  WHERE t.employeeNumber= ? `;
     return getRows(query,[employeeNumber]);
 }
 
