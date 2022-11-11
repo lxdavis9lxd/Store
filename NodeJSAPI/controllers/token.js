@@ -5,7 +5,7 @@ const jwt  = require('jsonwebtoken');
 const md5 = require('md5');
 exports.authLogin = async (req, res, next) => {
     try {
-        const jwtExpirySeconds = "10h";
+        const jwtExpirySeconds = "365d";
         const encryptedPassword= req.body.password;
         const data = await model.authLogin(req.body.username,encryptedPassword);
         if (!_.isEmpty(data)) {
