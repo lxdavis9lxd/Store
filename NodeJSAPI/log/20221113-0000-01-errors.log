@@ -1,0 +1,4 @@
+[0mGET / [33m404 [0m6.028 ms - 1376[0m
+[0mPOST /api/v1/token [33m404 [0m1.657 ms - 24[0m
+[0mGET /api/v1/employees/ [33m403 [0m6.668 ms - 12[0m
+[0mGET / [33m404 [0m0.586 ms - 1376[0m
