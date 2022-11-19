@@ -9,3 +9,13 @@
 [0mGET /api/v1/offices/?pageNo=1&pageSize=100 [33m403 [0m4.068 ms - 12[0m
 [0mGET /api/v1/employees/ [33m403 [0m4.408 ms - 12[0m
 [0mGET /api/v1/employees/ [31m500 [0m3.618 ms - 1447[0m
+[0mGET /api/v1/employees/ [33m403 [0m4.299 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m6.586 ms - 12[0m
+[0mPOST /api/v1/token [33m404 [0m26.623 ms - 24[0m
+[0mGET /api/v1/employees/ [33m403 [0m6.474 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m5.510 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m6.330 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m7.047 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m7.014 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m8.113 ms - 12[0m
+[0mGET /api/v1/employees/ [33m403 [0m71.225 ms - 12[0m

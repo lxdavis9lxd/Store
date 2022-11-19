@@ -10,9 +10,9 @@ exports.authLogin = async (req, res, next) => {
         const data = await model.authLogin(req.body.username,encryptedPassword);
         if (!_.isEmpty(data)) {
             const userData = data[0];
-            
+            console.log('userdata',userData)
            // const token = jwt.sign({userData}, process.env.TOKEN_SECRET, {
-            const token = jwt.sign({userData}, process.env.TOKEN_SECRET, {
+            const token = jwt.sign({userData}, '8ac21a22-0589-4c10-adff-4d5a6b94c176', {
                 algorithm: 'HS256',
                 expiresIn: jwtExpirySeconds
               })
