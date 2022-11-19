@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
             return res.status(StatusCodes.UNAUTHORIZED).send("Unauthorized");
         }
        // jwt.verify(token, process.env.TOKEN_SECRET, {}, (err, user) => {
-        jwt.verify(token, env.TOKEN_SECRET, {}, (err, user) => {
+        jwt.verify(token, process.env.TOKEN_SECRET, {}, (err, user) => {
              if (err) {
                 console.log(err);
                 return res.status(StatusCodes.FORBIDDEN).send("Invalid user");
