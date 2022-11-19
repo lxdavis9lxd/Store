@@ -12,7 +12,7 @@ exports.authLogin = async (req, res, next) => {
             const userData = data[0];
             
            // const token = jwt.sign({userData}, process.env.TOKEN_SECRET, {
-            const token = jwt.sign({userData}, env.TOKEN_SECRET, {
+            const token = jwt.sign({userData}, process.env.TOKEN_SECRET, {
                 algorithm: 'HS256',
                 expiresIn: jwtExpirySeconds
               })
