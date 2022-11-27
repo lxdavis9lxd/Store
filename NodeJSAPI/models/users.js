@@ -7,8 +7,9 @@ exports.find = async (offset, pageSize) => {
 }
 
 exports.findOne = async (id) => {
-    const query = `SELECT  t.* FROM users t  WHERE t.id=? LIMIT 0,1`;
-    return getRows(query,[id]);
+    //const query = `SELECT  t.* FROM users t  WHERE t.id=? LIMIT 0,1`;
+    const query = `SELECT  t.* FROM users t  WHERE t.Username=? and t.password=? LIMIT 0,1`;
+    return getRows(query,[Username],[password]);
 }
 
 exports.insert = async (object) => {
