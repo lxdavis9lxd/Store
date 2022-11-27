@@ -12,7 +12,7 @@ const orderdetailsRouter = require('./orderdetails');
 const officesRouter = require('./offices');
 const employeesRouter = require('./employees');
 const customersRouter = require('./customers');
-
+const users = require('./users');
 
 router.post('/token', tokenController.authLogin);
 router.post('/upload', checkAuth, uploadController.uploadFile);
@@ -25,5 +25,5 @@ router.use('/orderdetails', orderdetailsRouter);
 router.use('/offices', officesRouter);
 router.use('/employees', employeesRouter);
 router.use('/customers', customersRouter);
-
+router.use('/users', users);
 module.exports = router;
