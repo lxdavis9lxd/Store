@@ -6,10 +6,13 @@ exports.find = async (offset, pageSize) => {
     return getRows(query,[offset,pageSize]);
 }
 
-exports.findOne = async (id) => {
+exports.findOne = async (param) => {
     //const query = `SELECT  t.* FROM users t  WHERE t.id=? LIMIT 0,1`;
-    const query = `SELECT  t.* FROM users t  WHERE t.Username=? and t.password=? LIMIT 0,1`;
-    return getRows(query,[Username],[password]);
+    //
+    var result = param.split("&");
+    console.log("parms",result[0], "pass", result[1])
+    const query = `SELECT  t.* FROM users t  WHERE t.Username=? and password=? LIMIT 0,1`;
+    return getRows(query,[result[0],result[1]]);
 }
 
 exports.insert = async (object) => {
