@@ -9,12 +9,14 @@ exports.find = async (offset, pageSize) => {
 exports.findOne = async (param) => {
     //const query = `SELECT  t.* FROM users t  WHERE t.id=? LIMIT 0,1`;
     //
-    var result = param.split("&");
-    console.log("parms",result[0], "pass", result[1])
-    const query = `SELECT  t.* FROM users t  WHERE t.Username=? and password=? LIMIT 0,1`;
-    return getRows(query,[result[0],result[1]]);
+    
+    
+        var result = param;
+        console.log("parms",result)
+        const query = `SELECT  t.* FROM users t  WHERE t.Username=?  LIMIT 0,1`;
+        return getRows(query,[result]);
+    
 }
-
 exports.insert = async (object) => {
     const query = `INSERT INTO users set ?`;
     const id = await insertRow(query, object);
