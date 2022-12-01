@@ -1,0 +1,13 @@
+[0mGET /api/v1/users/lxdavis [33m404 [0m7.959 ms - 29[0m
+[0mPOST /api/v1/token [33m404 [0m16.210 ms - 24[0m
+[0mGET /api/v1/users/lxdavis [33m403 [0m3.202 ms - 12[0m
+[0mPOST /api/v1/token [33m404 [0m15.254 ms - 24[0m
+[0mGET /api/v1/users/lxdavis [33m403 [0m7.015 ms - 12[0m
+[0mPOST /api/v1/token [33m404 [0m16.187 ms - 24[0m
+[0mPOST /api/v1/token [33m404 [0m0.890 ms - 24[0m
+[0mGET /api/v1/employees/ [33m403 [0m5.128 ms - 12[0m
+[0mPOST /api/v1/token [33m404 [0m0.580 ms - 24[0m
+[0mGET /api/v1/employees/ [33m403 [0m3.240 ms - 12[0m
+[0mPOST /api/v1/token [33m404 [0m0.491 ms - 24[0m
+[0mPOST /api/v1/users/ [33m403 [0m3.010 ms - 12[0m
+[0mPOST /api/v1/users/ [31m500 [0m19.413 ms - 1342[0m
