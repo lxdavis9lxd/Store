@@ -1,6 +1,8 @@
 const connection = require('./connection');
 
 exports.getRows = async (query,param) => {
+   
+       
     return connection.query(query,param);
 }
 

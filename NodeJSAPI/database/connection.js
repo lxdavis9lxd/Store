@@ -25,13 +25,16 @@ pool.getConnection((err, connection) => {
         if (err.code === 'ER_CON_COUNT_ERROR') {
             console.error('Database has too many connections.');
         }
+        if (err.code === 'ER_DUP_ENTRY') {
+            console.error('dup.',connection.sqlMessage);
+        }
         if (err.code === 'ECONNREFUSED') {
             console.error('Database connection was refused.');
         }
     }
 
     if (connection) connection.release();
-
+        
     return;
 });
 

@@ -50,8 +50,11 @@ exports.create = async (req, res, next) => {
 			res.status(StatusCodes.CREATED).send({message:'Record created', data:data});
 		} else {
 			res.status(StatusCodes.BAD_REQUEST).send({message : "Bad Request!"});
-		}
+		} 
 	} catch (e) {
+		res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({message : "Bad Request!",e});
+       
+	//	e.send({message:'Duplicate Record ', data:e})
 		console.log(`Error in create`, e);
 		next(e);
 	}
