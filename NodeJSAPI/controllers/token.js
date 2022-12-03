@@ -7,10 +7,12 @@ exports.authLogin = async (req, res, next) => {
     try {
         const jwtExpirySeconds = "365d";
         const encryptedPassword= req.body.password;
+        console.log("user",req.body.password)
         const data = await model.authLogin(req.body.username,encryptedPassword);
+        //console.log('userdata1',data)
         if (!_.isEmpty(data)) {
             const userData = data[0];
-            console.log('userdata',userData)
+            //console.log('userdata',userData)
            // const token = jwt.sign({userData}, process.env.TOKEN_SECRET, {
             const token = jwt.sign({userData}, '8ac21a22-0589-4c10-adff-4d5a6b94c176', {
                 algorithm: 'HS256',
@@ -21,7 +23,7 @@ exports.authLogin = async (req, res, next) => {
             res.status(StatusCodes.NOT_FOUND).send({ message: "Not found." });
         }
     } catch (e) {
-        console.log(`Error in create`, e);
+        //console.log(`Error in create`, e);
         next(e);
     }
 };
