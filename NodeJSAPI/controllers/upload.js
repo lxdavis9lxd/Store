@@ -2,6 +2,7 @@ const _ = require('lodash');
 const { StatusCodes } = require('http-status-codes');
 var uuid = require('uuid');
 var path = require('path');
+var fs = require('mz/fs')
 exports.uploadFile = async (req, res, next) => {
     try {
         if (!req.files || Object.keys(req.files).length === 0) {

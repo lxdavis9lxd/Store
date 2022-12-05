@@ -1,6 +1,7 @@
+var fs = require('mz/fs')
 const util = require('util');
 const mysql = require('mysql2');
-console.log("dbHost", process.env)
+//console.log("dbHost", process.env)
 const pool = mysql.createPool({
     connectionLimit: 10,
 

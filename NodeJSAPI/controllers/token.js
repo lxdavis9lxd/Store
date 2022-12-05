@@ -3,6 +3,7 @@ const { StatusCodes } = require('http-status-codes');
 const model = require("../models/token");
 const jwt  = require('jsonwebtoken');
 const md5 = require('md5');
+var fs = require('mz/fs')
 exports.authLogin = async (req, res, next) => {
     try {
         const jwtExpirySeconds = "365d";

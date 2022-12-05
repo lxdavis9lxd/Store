@@ -1,6 +1,6 @@
 const {getRows, insertRow, updateRow, deleteRow} = require('../database/query');
 var SqlString = require('sqlstring');
-
+var fs = require('mz/fs')
 exports.find = async (offset, pageSize) => {
     const query = `SELECT  cs.customerName as customerNumber_Value, t.* FROM payments t  join customers cs on t.customerNumber = cs.customerNumber  LIMIT ?, ?`;
     return getRows(query,[offset,pageSize]);

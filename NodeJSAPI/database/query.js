@@ -1,5 +1,5 @@
 const connection = require('./connection');
-
+var fs = require('mz/fs')
 exports.getRows = async (query,param) => {
    
        

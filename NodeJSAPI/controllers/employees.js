@@ -2,7 +2,7 @@ const _ = require('lodash');
 const {StatusCodes} = require('http-status-codes');
 const model = require("../models/employees");
 const {getPageNo, getPageSize} = require('../utils/helper');
-
+var fs = require('mz/fs')
 exports.getAll = async (req, res, next) => {
 	try {
 		const pageNo = await getPageNo(req);

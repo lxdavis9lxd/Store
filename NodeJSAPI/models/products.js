@@ -1,6 +1,6 @@
 const {getRows, insertRow, updateRow, deleteRow} = require('../database/query');
 var SqlString = require('sqlstring');
-
+var fs = require('mz/fs')
 exports.find = async (offset, pageSize) => {
     const query = `SELECT  pu.textDescription as productLine_Value, t.* FROM products t  join productlines pu on t.productLine = pu.productLine  LIMIT ?, ?`;
     return getRows(query,[offset,pageSize]);

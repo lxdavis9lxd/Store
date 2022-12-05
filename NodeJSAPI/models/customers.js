@@ -1,6 +1,6 @@
 const {getRows, insertRow, updateRow, deleteRow} = require('../database/query');
 var SqlString = require('sqlstring');
-
+var fs = require('mz/fs')
 exports.find = async (offset, pageSize) => {
     const query = `SELECT  ep.lastName as employeeNumber_Value, t.* FROM customers t  left join employees ep on t.salesRepEmployeeNumber = ep.employeeNumber  `;
     return getRows(query,[offset,pageSize]);
